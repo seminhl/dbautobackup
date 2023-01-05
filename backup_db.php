@@ -114,7 +114,7 @@ class Db_Tool_Backup
      */
     public function backup()
     {
-        $now = new DateTime('now', new DateTimeZone('UTC'));
+        $now = new DateTime('now');
         $suffix = $now->format('Y-m-d-H-i-s');
 
         if ( ! empty($this->_db_names))
