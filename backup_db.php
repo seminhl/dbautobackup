@@ -159,10 +159,21 @@ class Db_Tool_Backup
 
         $command = "mysqldump " . implode(' ', $params) . ' ' . $db_name;
 
-        if ($this->_compression) {
+        switch ($this->_compression) {
+        case "gzip":
+            $command .= " | {$this->_compression} > $filename.gz";
+            break;
+        case "bzip2":
             $command .= " | {$this->_compression} > $filename.bz2";
-        } else {
-            $command = "mysqldump " . implode(' ', $params) . " $db_name > $filename";
+            break;
+        case "xz":
+            $command .= " | {$this->_compression} > $filename.xz";
+            break;
+        case "zstd":
+            $command .= " | {$this->_compression} > $filename.zst";
+            break;
+        default:
+            $command .= " > $filename";
         }
 
         return system($command);

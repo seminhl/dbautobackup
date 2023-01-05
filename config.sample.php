@@ -3,7 +3,7 @@
 return array(
     'backup_dir'    => '/data/db-backups',
     'keep_files'    => 50,
-    'compression'   => '', // gzip, bzip2, etc
+    'compression'   => '', // gzip, bzip2, xz, zstd or Blank (no compression)
     'db_host'       => 'localhost',
     'db_port'       => '3306',
     'db_protocol'   => '', // tcp, socket, etc
