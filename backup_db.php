@@ -148,7 +148,7 @@ class Db_Tool_Backup
         } else {
             // Defaults to passing username/password into the command line
             $params[] = '-u '.$this->_db_user;
-            $params[] = '-p'.$this->_db_passwd;
+            $params[] = "-p'".$this->_db_passwd."'";
         }
 
         $params[] = '-h '.$this->_db_host;
